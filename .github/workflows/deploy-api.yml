@@ -17,7 +17,7 @@ jobs:
       - run: touch .env
       - run: echo 'DEV_DATABASE_URL=${{secrets.PG_CONN}}' >> .env
       - run: cat .env
-      - run: docker build -t mrarzi/pg-restapi:${{github.sha}} .
+      - run: docker build -t mrarzi/busespg-restapi:${{github.sha}} .
       - run: docker images
 
       - name: doccker login
