@@ -17,7 +17,7 @@ jobs:
       - run: touch .env
       - run: echo 'DEV_DATABASE_URL=${{secrets.PG_CONN}}' >> .env
       - run: cat .env
-      - run: docker build -t mrarzi/busespg-restapi:${{github.sha}} .
+      - run: docker build -t mrarzi/busesmysql-restapi:${{github.sha}} .
       - run: docker images
 
       - name: doccker login
@@ -27,7 +27,7 @@ jobs:
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: docker push
-        run: docker push ${{ secrets.DOCKER_USER}}/busespg-restapi:${{github.sha}}
+        run: docker push ${{ secrets.DOCKER_USER}}/busesmysql-restapi:${{github.sha}}
          
       
       #- run: docker build -t Mr-Arzi/mysql-restapi .
